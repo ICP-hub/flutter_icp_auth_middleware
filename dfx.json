@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "internet_identity" : {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    },
+    "flutter_ii_middleware": {
+      "dependencies": [],
+      "frontend": {
+        "entrypoint": "src/index.html"
+      },
+      "source": [
+        "src/assets",
+        "dist/src"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

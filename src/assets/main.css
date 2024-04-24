@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background: rgb(9, 20, 78);
+    background: radial-gradient(circle, rgba(9, 20, 78, 1) 0%, rgba(47, 5, 15, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 20px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    background-color: #CCCCCC36;
+    outline:none;
+    border-radius: 10px;
+    border:1px transparent solid;
+    color:white;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-weight: 600;
+}
+
+button:disabled {
+    background-color: rgba(49, 49, 49, 0.3);
+    cursor: default;
+    border: none;
+    color: #9c9c9c;
+}
+
+button:not(:disabled):hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#redirect {
+    width: 190px;
+}
+
+.gradient {
+    position: fixed;
+    top: 10;
+    left: 20;
+    width: 500px;
+    height: 500px;
+    filter: blur(50px);
+    background-image: linear-gradient(#29ABE2, #5B2684, #ED1E79, #F15A24, #FBB03B);
+    animation: rotate 10s cubic-bezier(0.8, 0.2, 0.2, 0.8) alternate infinite;
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+main {
+    padding: 30px 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    border-radius: 16px;
+    box-shadow: rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    width: 250px; 
+    max-width: 250px; 
+    margin: auto;
+}
+
+#loginStatus{
+    color: rgb(188, 185, 185);
+    font-weight: 600;
+}
+
+#principalId {
+    color: white;
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 480px) {
+    .gradient {
+        animation: rotate 5s cubic-bezier(0.8, 0.2, 0.2, 0.8) alternate infinite;
+    }
+  }
