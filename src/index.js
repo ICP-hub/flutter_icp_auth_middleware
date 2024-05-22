@@ -19,6 +19,7 @@ function getQueryParams() {
 const appPublicKey = Ed25519PublicKey.fromDer(fromHex(getQueryParams().publicKey));
 
 let delegationChain;
+var status = "false";
 
 // Login button
 loginButton.onclick = async (e) => {
@@ -38,9 +39,10 @@ loginButton.onclick = async (e) => {
           : `http://rdmx6-jaaaa-aaaaa-aaadq-cai.localhost:4943`,
       onSuccess: () => {
         resolve;
+        status = "true";
         redirectToAppButton.removeAttribute("disabled");
-        loginButton.setAttribute("disabled", true);
-        handleSuccessfulLogin(authClient, middleKeyIdentity);
+        loginButton.setAttribute("disabled", true);        
+        handleSuccessfulLogin(authClient, middleKeyIdentity,status);
       },
     });
   });
@@ -48,7 +50,7 @@ loginButton.onclick = async (e) => {
 };
 
 // Handling delegated data after login
-async function handleSuccessfulLogin(authClientInstance, middleKeyIdentity) {
+async function handleSuccessfulLogin(authClientInstance, middleKeyIdentity, status) {
 
   const middleIdentity = authClientInstance.getIdentity();
 
@@ -83,7 +85,7 @@ async function handleSuccessfulLogin(authClientInstance, middleKeyIdentity) {
   // Sending encoded delegation to the app
   redirectToAppButton.onclick = async (e) => {
     e.preventDefault();
-    window.location.href = `${scheme}://${host}?del=${encodedDelegation}`;
+    window.location.href = `${scheme}://${host}?del=${encodedDelegation}&status=${status}`;
     loginButton.removeAttribute("disabled");
   };
 
